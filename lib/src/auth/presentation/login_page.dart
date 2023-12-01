@@ -23,10 +23,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   late LoginBloc _bloc;
   final _inputFormKey = GlobalKey<FormState>();
-  AppPreferences? _prefs;
 
-  final TextEditingController emailController = TextEditingController() ;
-  final TextEditingController passController = TextEditingController() ;
+  final TextEditingController _emailController = TextEditingController() ;
+  final TextEditingController _passController = TextEditingController() ;
 
   bool _isShowPassword = false;
 
@@ -34,15 +33,15 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     _bloc = LoginBloc(
-      preferences: GetIt.instance(),
       loginUseCase: GetIt.instance()
     );
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _prefs = GetIt.instance<AppPreferences>();
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passController.dispose();
   }
 
   @override
@@ -94,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                   CommonTextField(
                     label: 'Email',
                     hint: 'example@email.com',
-                    controller: emailController,
+                    controller: _emailController,
                     padding: const EdgeInsets.symmetric(horizontal: 28),
                     inputType: TextInputType.emailAddress,
                     inputAction: TextInputAction.next,
@@ -107,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                   CommonTextField(
                     label: 'Password',
                     hint: '',
-                    controller: passController,
+                    controller: _passController,
                     padding: const EdgeInsets.symmetric(horizontal: 28),
                     inputAction: TextInputAction.done,
                     isObscureText: true,
@@ -142,8 +141,8 @@ class _LoginPageState extends State<LoginPage> {
     if (_inputFormKey.currentState?.validate() == true) {
       _bloc.add(
         LoginInitEvent(
-            email: emailController.text,
-            password: passController.text,
+            email: _emailController.text,
+            password: _passController.text,
         ),
       );
     }

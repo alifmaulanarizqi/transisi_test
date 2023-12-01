@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_basic/src/employee/presentation/add_employee/add_employee_page.dart';
 import 'package:flutter_bloc_basic/src/employee/presentation/detail_employee/arg/detail_employee_arg.dart';
 import 'package:get_it/get_it.dart';
 import '../../../../common_ui/utils/colors/common_colors.dart';
@@ -95,6 +96,21 @@ class _ListEmployeePageState extends State<ListEmployeePage> {
           ),
         )
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            AddEmployeePage.route,
+          );
+        },
+        backgroundColor: CommonColors.blue9F,
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.add,
+          size: 30,
+          color: CommonColors.white,
+        ),
+      ),
     );
   }
 
@@ -119,7 +135,7 @@ class _ListEmployeePageState extends State<ListEmployeePage> {
               );
             },
             child: Card(
-              color: CommonColors.white,
+              color: CommonColors.whiteFB,
               elevation: 1,
               child: Row(
                 children: [

@@ -49,6 +49,7 @@ class CommonTextField extends StatefulWidget {
 
 class _CommonTextFieldState extends State<CommonTextField> {
   late TextEditingController _controller;
+
   @override
   void initState() {
     super.initState();
