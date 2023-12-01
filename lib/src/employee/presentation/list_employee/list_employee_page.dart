@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_basic/src/employee/presentation/add_employee/add_employee_page.dart';
 import 'package:flutter_bloc_basic/src/employee/presentation/detail_employee/arg/detail_employee_arg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../../common_ui/utils/colors/common_colors.dart';
 import '../../../../common_ui/utils/text_style/common_text_style.dart';
 import '../detail_employee/detail_employee_page.dart';
@@ -230,10 +231,32 @@ class _ListEmployeePageState extends State<ListEmployeePage> {
   }
 
   Widget _buildShimmerLoading() {
-    return const Expanded(
-        child: Center(
-          child: CircularProgressIndicator()
-        )
+    return ListView.builder(
+        itemCount: 6,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              if(index == 0)
+                const SizedBox(
+                  height: 12,
+                ),
+              Shimmer.fromColors(
+                baseColor: CommonColors.greyD1,
+                highlightColor: CommonColors.greyBD,
+                child: Container(
+                  height: 130,
+                  decoration: BoxDecoration(
+                    color: CommonColors.greyD1,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+            ],
+          );
+        }
     );
   }
 }

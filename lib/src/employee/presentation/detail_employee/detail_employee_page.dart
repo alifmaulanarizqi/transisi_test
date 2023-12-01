@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../common_ui/utils/colors/common_colors.dart';
 import '../../../../common_ui/utils/text_style/common_text_style.dart';
@@ -92,7 +93,7 @@ class _DetailEmployeePageState extends State<DetailEmployeePage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          _buildFotoProile(
+          _buildPhotoProfile(
             url: state.data.employeeDto.avatar,
             fullName: '${state.data.employeeDto.firstName} ${state.data.employeeDto.lastName}'
           ),
@@ -124,7 +125,7 @@ class _DetailEmployeePageState extends State<DetailEmployeePage> {
     );
   }
 
-  Widget _buildFotoProile({
+  Widget _buildPhotoProfile({
     required String url,
     required String fullName,
   }) {
@@ -240,10 +241,99 @@ class _DetailEmployeePageState extends State<DetailEmployeePage> {
   }
 
   Widget _buildShimmerLoading() {
-    return const Expanded(
-        child: Center(
-            child: CircularProgressIndicator()
-        )
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 260,
+                color: CommonColors.blueB5,
+              ),
+              Positioned(
+                bottom: 80,
+                child: Shimmer.fromColors(
+                  baseColor: CommonColors.greyD1,
+                  highlightColor: CommonColors.greyBD,
+                  child: Container(
+                    height: 130,
+                    width: 130,
+                    decoration: const BoxDecoration(
+                      color: CommonColors.greyD1,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 30,
+                child: Shimmer.fromColors(
+                  baseColor: CommonColors.greyD1,
+                  highlightColor: CommonColors.greyBD,
+                  child: Container(
+                    height: 30,
+                    width: 250,
+                    color: CommonColors.greyD1,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 18,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: Shimmer.fromColors(
+              baseColor: CommonColors.greyD1,
+              highlightColor: CommonColors.greyBD,
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: CommonColors.greyD1,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: Shimmer.fromColors(
+              baseColor: CommonColors.greyD1,
+              highlightColor: CommonColors.greyBD,
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: CommonColors.greyD1,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: Shimmer.fromColors(
+              baseColor: CommonColors.greyD1,
+              highlightColor: CommonColors.greyBD,
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: CommonColors.greyD1,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
