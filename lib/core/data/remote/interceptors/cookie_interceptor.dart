@@ -8,7 +8,9 @@ class CookieInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     super.onResponse(response, handler);
     var prefs = GetIt.instance<AppPreferences>();
-    prefs.setToken(response.data['token']);
+    if(response.data['token'] != null) {
+      prefs.setToken(response.data['token']);
+    }
     // var cookies = response.headers['set-cookie'];
     // print('asdasdasd1');
     // if (cookies != null && cookies.isNotEmpty) {

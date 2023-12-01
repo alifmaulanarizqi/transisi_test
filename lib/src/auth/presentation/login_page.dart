@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_basic/common_ui/utils/colors/common_colors.dart';
 import 'package:flutter_bloc_basic/common_ui/widgets/button/primary_button_text_only.dart';
 import 'package:flutter_bloc_basic/src/auth/presentation/bloc/login_bloc.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee.dart';
+import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 
