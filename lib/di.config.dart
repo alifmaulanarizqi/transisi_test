@@ -14,27 +14,29 @@ import 'package:flutter_bloc_basic/core/data/remote/interceptors/auth_intercepto
     as _i3;
 import 'package:flutter_bloc_basic/core/data/remote/interceptors/cookie_interceptor.dart'
     as _i4;
-import 'package:flutter_bloc_basic/core/di/local_module.dart' as _i19;
-import 'package:flutter_bloc_basic/core/di/network_module.dart' as _i18;
+import 'package:flutter_bloc_basic/core/di/local_module.dart' as _i20;
+import 'package:flutter_bloc_basic/core/di/network_module.dart' as _i19;
 import 'package:flutter_bloc_basic/src/auth/data/remote/service/auth_service.dart'
     as _i10;
 import 'package:flutter_bloc_basic/src/auth/data/repository/auth_repository.dart'
-    as _i15;
+    as _i16;
 import 'package:flutter_bloc_basic/src/auth/data/repository/auth_repository_impl.dart'
-    as _i25;
-import 'package:flutter_bloc_basic/src/auth/di/auth_di_module.dart' as _i24;
+    as _i26;
+import 'package:flutter_bloc_basic/src/auth/di/auth_di_module.dart' as _i25;
 import 'package:flutter_bloc_basic/src/auth/domain/usecase/login_usecase.dart'
-    as _i17;
+    as _i18;
 import 'package:flutter_bloc_basic/src/employee/data/remote/service/employee_service.dart'
     as _i8;
 import 'package:flutter_bloc_basic/src/employee/data/repository/employee_repository.dart'
     as _i11;
 import 'package:flutter_bloc_basic/src/employee/data/repository/employee_repository_impl.dart'
-    as _i21;
+    as _i22;
 import 'package:flutter_bloc_basic/src/employee/di/employee_di_module.dart'
-    as _i20;
+    as _i21;
+import 'package:flutter_bloc_basic/src/employee/domain/usecase/add_employee_usecase.dart'
+    as _i15;
 import 'package:flutter_bloc_basic/src/employee/domain/usecase/detail_employee_usecase.dart'
-    as _i16;
+    as _i17;
 import 'package:flutter_bloc_basic/src/employee/domain/usecase/list_employee_usecase.dart'
     as _i14;
 import 'package:flutter_bloc_basic/src/example/data/remote/service/example_service.dart'
@@ -42,9 +44,9 @@ import 'package:flutter_bloc_basic/src/example/data/remote/service/example_servi
 import 'package:flutter_bloc_basic/src/example/data/repository/example_repository.dart'
     as _i12;
 import 'package:flutter_bloc_basic/src/example/data/repository/example_repository_impl.dart'
-    as _i23;
+    as _i24;
 import 'package:flutter_bloc_basic/src/example/di/example_di_module.dart'
-    as _i22;
+    as _i23;
 import 'package:flutter_bloc_basic/src/example/domain/usecase/example_usecase.dart'
     as _i13;
 import 'package:get_it/get_it.dart' as _i1;
@@ -95,45 +97,47 @@ extension GetItInjectableX on _i1.GetIt {
         () => exampleDiModule.exampleUseCase(gh<_i12.ExampleRepository>()));
     gh.factory<_i14.ListEmployeeUseCase>(() =>
         employeeDiModule.listEmployeeUseCase(gh<_i11.EmployeeRepository>()));
-    gh.singleton<_i15.AuthRepository>(authDiModule.authRepository);
-    gh.factory<_i16.DetailEmployeeUseCase>(() =>
+    gh.factory<_i15.AddEmployeeUseCase>(() =>
+        employeeDiModule.addEmployeeUseCase(gh<_i11.EmployeeRepository>()));
+    gh.singleton<_i16.AuthRepository>(authDiModule.authRepository);
+    gh.factory<_i17.DetailEmployeeUseCase>(() =>
         employeeDiModule.detailEmployeeUseCase(gh<_i11.EmployeeRepository>()));
-    gh.factory<_i17.LoginUseCase>(
-        () => authDiModule.loginUseCase(gh<_i15.AuthRepository>()));
+    gh.factory<_i18.LoginUseCase>(
+        () => authDiModule.loginUseCase(gh<_i16.AuthRepository>()));
     return this;
   }
 }
 
-class _$NetworkModule extends _i18.NetworkModule {}
+class _$NetworkModule extends _i19.NetworkModule {}
 
-class _$LocalModule extends _i19.LocalModule {}
+class _$LocalModule extends _i20.LocalModule {}
 
-class _$EmployeeDiModule extends _i20.EmployeeDiModule {
+class _$EmployeeDiModule extends _i21.EmployeeDiModule {
   _$EmployeeDiModule(this._getIt);
 
   final _i1.GetIt _getIt;
 
   @override
-  _i21.EmployeeRepositoryImpl get employeeRepository =>
-      _i21.EmployeeRepositoryImpl(_getIt<_i8.EmployeeService>());
+  _i22.EmployeeRepositoryImpl get employeeRepository =>
+      _i22.EmployeeRepositoryImpl(_getIt<_i8.EmployeeService>());
 }
 
-class _$ExampleDiModule extends _i22.ExampleDiModule {
+class _$ExampleDiModule extends _i23.ExampleDiModule {
   _$ExampleDiModule(this._getIt);
 
   final _i1.GetIt _getIt;
 
   @override
-  _i23.ExampleRepositoryImpl get exampleRepository =>
-      _i23.ExampleRepositoryImpl(_getIt<_i9.ExampleService>());
+  _i24.ExampleRepositoryImpl get exampleRepository =>
+      _i24.ExampleRepositoryImpl(_getIt<_i9.ExampleService>());
 }
 
-class _$AuthDiModule extends _i24.AuthDiModule {
+class _$AuthDiModule extends _i25.AuthDiModule {
   _$AuthDiModule(this._getIt);
 
   final _i1.GetIt _getIt;
 
   @override
-  _i25.AuthRepositoryImpl get authRepository =>
-      _i25.AuthRepositoryImpl(_getIt<_i10.AuthService>());
+  _i26.AuthRepositoryImpl get authRepository =>
+      _i26.AuthRepositoryImpl(_getIt<_i10.AuthService>());
 }

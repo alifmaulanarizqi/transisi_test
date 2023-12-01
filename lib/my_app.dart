@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_basic/src/auth/presentation/login_page.dart';
+import 'package:flutter_bloc_basic/src/employee/presentation/add_employee/add_employee_page.dart';
 import 'package:flutter_bloc_basic/src/employee/presentation/detail_employee/detail_employee_page.dart';
 import 'package:flutter_bloc_basic/src/employee/presentation/list_employee/list_employee_page.dart';
 import 'package:flutter_bloc_basic/src/example/presentation/example_page_1.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         LoginPage.route: (ctx) => const LoginPage(),
         ListEmployeePage.route: (ctx) => const ListEmployeePage(),
         DetailEmployeePage.route: (ctx) => const DetailEmployeePage(),
+        AddEmployeePage.route: (ctx) => const AddEmployeePage(),
       },
     );
   }
