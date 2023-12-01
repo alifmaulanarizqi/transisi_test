@@ -14,7 +14,6 @@ class ExampleRepositoryImpl extends ExampleRepository {
   FutureOrError<BaseResponse<ExampleResponse>> getUser({
     int? id
   }) {
-    print('fromrepository');
     return callOrError(() => exampleService.getUser(id: id));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_basic/common_ui/utils/colors/common_colors.dart';
 import 'package:flutter_bloc_basic/src/auth/presentation/login_page.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee.dart';
+import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee_page.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../core/data/local/app_preferences.dart';
