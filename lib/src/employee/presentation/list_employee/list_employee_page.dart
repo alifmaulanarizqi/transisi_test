@@ -232,7 +232,7 @@ class _ListEmployeePageState extends State<ListEmployeePage> {
 
   Widget _buildShimmerLoading() {
     return ListView.builder(
-        itemCount: 5,
+        itemCount: 6,
         itemBuilder: (context, index) {
           return Column(
             children: [
