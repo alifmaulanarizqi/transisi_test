@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/domain/model/employee_dto.dart';
-
-import '../../../../../core/domain/models/error_dto.dart';
-import '../../domain/usecase/list_employee_usecase.dart';
+import 'package:flutter_bloc_basic/src/employee/domain/model/employee_dto.dart';
+import '../../../../../../core/domain/models/error_dto.dart';
+import '../../../domain/usecase/list_employee_usecase.dart';
 
 part 'list_employee_event.dart';
 part 'list_employee_state.dart';

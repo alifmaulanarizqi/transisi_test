@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_basic/common_ui/utils/colors/common_colors.dart';
 import 'package:flutter_bloc_basic/common_ui/widgets/button/primary_button_text_only.dart';
-import 'package:flutter_bloc_basic/src/auth/presentation/bloc/login_bloc.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../common_ui/utils/text_style/common_text_style.dart';
 import '../../../common_ui/widgets/textfield/common_textfield.dart';
 import '../../../core/data/local/app_preferences.dart';
+import '../../employee/presentation/list_employee/list_employee_page.dart';
+import 'login/bloc/login_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   static const route = '/login';
