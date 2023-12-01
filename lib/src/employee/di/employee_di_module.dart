@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/data/remote/service/employee_service.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/data/repository/employee_repository.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/domain/usecase/list_employee_usecase.dart';
+import 'package:flutter_bloc_basic/src/employee/domain/usecase/list_employee_usecase.dart';
 import 'package:injectable/injectable.dart';
-
+import '../data/remote/service/employee_service.dart';
+import '../data/repository/employee_repository.dart';
 import '../data/repository/employee_repository_impl.dart';
+import '../domain/usecase/detail_employee_usecase.dart';
 
 @module
 abstract class EmployeeDiModule {
@@ -17,4 +17,8 @@ abstract class EmployeeDiModule {
   @injectable
   ListEmployeeUseCase listEmployeeUseCase(EmployeeRepository repository) =>
       ListEmployeeUseCase(repository);
+
+  @injectable
+  DetailEmployeeUseCase detailEmployeeUseCase(EmployeeRepository repository) =>
+      DetailEmployeeUseCase(repository);
 }

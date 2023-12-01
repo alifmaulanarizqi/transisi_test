@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/bloc/list_employee_bloc.dart';
+import 'package:flutter_bloc_basic/src/employee/presentation/detail_employee/arg/detail_employee_arg.dart';
 import 'package:get_it/get_it.dart';
-
 import '../../../../common_ui/utils/colors/common_colors.dart';
 import '../../../../common_ui/utils/text_style/common_text_style.dart';
+import '../detail_employee/detail_employee_page.dart';
+import 'bloc/list_employee_bloc.dart';
 
 class ListEmployeePage extends StatefulWidget {
-  static const route = '/list-employee';
+  static const route = '/employee';
 
   const ListEmployeePage({Key? key}) : super(key: key);
 
@@ -109,7 +110,13 @@ class _ListEmployeePageState extends State<ListEmployeePage> {
         if(index < _bloc.stateData.employeeDto.length - 1 || lastIndex) {
           return GestureDetector(
             onTap: () {
-
+              Navigator.pushNamed(
+                context,
+                DetailEmployeePage.route,
+                arguments: DetailEmployeeArg(
+                    id: state.data.employeeDto[index].id
+                ),
+              );
             },
             child: Card(
               color: CommonColors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_basic/src/auth/presentation/login_page.dart';
-import 'package:flutter_bloc_basic/src/employee/list_employee/presentation/list_employee_page.dart';
+import 'package:flutter_bloc_basic/src/employee/presentation/detail_employee/detail_employee_page.dart';
+import 'package:flutter_bloc_basic/src/employee/presentation/list_employee/list_employee_page.dart';
 import 'package:flutter_bloc_basic/src/example/presentation/example_page_1.dart';
 import 'package:flutter_bloc_basic/src/example/presentation/example_page_2.dart';
 import 'package:flutter_bloc_basic/src/splash/presenation/splash_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ExamplePage2.route: (ctx) => const ExamplePage2(),
         LoginPage.route: (ctx) => const LoginPage(),
         ListEmployeePage.route: (ctx) => const ListEmployeePage(),
+        DetailEmployeePage.route: (ctx) => const DetailEmployeePage(),
       },
     );
   }
